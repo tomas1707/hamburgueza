@@ -1,7 +1,5 @@
 package ingredientes;
 
-import javax.smartcardio.CardTerminal;
-
 public class Catzup implements Ingrediente {
     private String nombre;
     private float calorias;
