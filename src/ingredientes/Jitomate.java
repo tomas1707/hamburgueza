@@ -1,6 +1,27 @@
 package ingredientes;
 
 public class Jitomate implements Ingrediente {
+    public static enum tipo{
+        bola("Jitomate Bola"),
+        roma("Jitomate Roma"),
+        cherry("Jitomate Cherry");
+
+        private String tipoJitomate;
+
+        private tipo(String tipoJitomate){
+            this.tipoJitomate=tipoJitomate;
+        }
+
+        public String getNombre(){
+            return this.tipoJitomate;
+        }
+
+        @Override
+        public String toString() {
+            return this.tipoJitomate;
+        }
+    }
+
     private String nombre;
     private float calorias;
 
