@@ -1,32 +1,35 @@
 package componentes;
 
 public class Pan {
-    private String tipoPan;
-    private String tamannio;
+    public static enum tipo{clasico,cristal,integral,amapola, brioche};
+    public static enum tamannio_{chico, mediano, grande}
+
+    private tipo tipoPan;
+    private tamannio_ tamannio;
 
     public Pan(){
-        this.tipoPan="Normal";
-        this.tamannio="Mediano";
+        this.tipoPan=tipo.clasico;
+        this.tamannio=tamannio_.mediano;
     }
 
-    public Pan(String tipoPan, String tamannio){
+    public Pan(tipo tipoPan, tamannio_ tamannio){
         this.tipoPan=tipoPan;
         this.tamannio=tamannio;
     }
 
-    public String getTipoPan() {
+    public tipo getTipoPan() {
         return tipoPan;
     }
 
-    public void setTipoPan(String tipoPan) {
+    public void setTipoPan(tipo tipoPan) {
         this.tipoPan = tipoPan;
     }
 
-    public String getTamannio() {
+    public tamannio_ getTamannio() {
         return tamannio;
     }
 
-    public void setTamannio(String tamannio) {
+    public void setTamannio(tamannio_ tamannio) {
         this.tamannio = tamannio;
     }
 }
