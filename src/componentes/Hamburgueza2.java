@@ -15,18 +15,26 @@ public class Hamburgueza2 {
         i=0;
     }
 
-    public void addJitomate(){
-        ingredientes[i]=new Jitomate();
-        i++;
+    public void setPan(Pan pan){
+        this.pan=pan;
     }
 
-    public void addJitomate(String nombre, float calorias){
-        ingredientes[i]=new Jitomate(nombre,calorias);
-        i++;
+    public void setPan(Pan.tipo tipoPan, Pan.tamannio_ tamannio){
+        pan.setTipoPan(tipoPan);
+        pan.setTamannio(tamannio);
     }
 
-    public void addCatzup(){
-        ingredientes[i]=new Catzup();
+    public void setCarne(Carne.tipo tipoCrne, String coccion){
+        carne.setTipoCarne(tipoCrne);
+        carne.setCoccion(coccion);
+    }
+
+    public void setCarne(Carne carne){
+        this.carne=carne;
+    }
+
+    public void addCatsup(){
+        ingredientes[i]=new Catsup();
         i++;
     }
 
@@ -35,29 +43,29 @@ public class Hamburgueza2 {
         i++;
     }
 
+    public void addJitomate(){
+        ingredientes[i]=new Jitomate();
+        i++;
+    }
+
+    public void addJitomate(Jitomate.tipo nombre, float calorias){
+        ingredientes[i]=new Jitomate(nombre.getNombre(),calorias);
+        i++;
+    }
+
     public void addQueso(){
         ingredientes[i]=new Queso();
+        i++;
+    }
+
+    public void addQueso(Queso.tipo tipoQueso, float calorias){
+        ingredientes[i]=new Queso(tipoQueso.name(),calorias);
         i++;
     }
 
     public void addLechuga(){
         ingredientes[i]=new Lechuga();
         i++;
-    }
-
-    public void addQueso(String nombre, float calorias){
-        ingredientes[i]=new Queso(nombre,calorias);
-        i++;
-    }
-
-    public void setCarne(String tipoCrne, String coccion){
-        carne.setTipoCarne(tipoCrne);
-        carne.setCoccion(coccion);
-    }
-
-    public void setPan(String tipoPan, String tamannio){
-        pan.setTipoPan(tipoPan);
-        pan.setTamannio(tamannio);
     }
 
     private String getIngredientes(){

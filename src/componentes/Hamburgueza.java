@@ -1,6 +1,6 @@
 package componentes;
 
-import ingredientes.Catzup;
+import ingredientes.Catsup;
 import ingredientes.Jitomate;
 
 public class Hamburgueza {
@@ -10,7 +10,7 @@ public class Hamburgueza {
     private Jitomate[] jitomates= new Jitomate[100];
     private int i_jito;
 
-    private Catzup[] catzup= new Catzup[100];
+    private Catsup[] catzup= new Catsup[100];
     private int i_catz;
 
     public Hamburgueza(){
@@ -31,7 +31,7 @@ public class Hamburgueza {
     }
 
     public void addCatzup(){
-        catzup[i_catz]=new Catzup();
+        catzup[i_catz]=new Catsup();
         i_catz++;
     }
 
