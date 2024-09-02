@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static Pan menuPan() {
+    private static BasePan menuPan() {
         Scanner teclado = new Scanner(System.in);
         int opc;
 
@@ -19,12 +19,12 @@ public class Main {
         System.out.println("5.-Brioche");
         opc=teclado.nextInt();
 
-        Pan.tipo tipoPan= switch (opc) {
-            case 1 -> Pan.tipo.clasico;
-            case 2 -> Pan.tipo.cristal;
-            case 3 -> Pan.tipo.integral;
-            case 4 -> Pan.tipo.amapola;
-            default -> Pan.tipo.brioche;
+        BasePan.tipo tipoPan= switch (opc) {
+            case 1 -> BasePan.tipo.clásico;
+            case 2 -> BasePan.tipo.cristal;
+            case 3 -> BasePan.tipo.integral;
+            case 4 -> BasePan.tipo.amapola;
+            default -> BasePan.tipo.brioche;
         };
 
         System.out.println("y ¿que tamaño te apetece?");
@@ -33,13 +33,13 @@ public class Main {
         System.out.println("3.- Grande");
         opc=teclado.nextInt();
 
-        Pan.tamannio_ tamannio= switch (opc){
-          case 1 -> Pan.tamannio_.chico;
-          case 2 -> Pan.tamannio_.mediano;
-          default -> Pan.tamannio_.grande;
+        BasePan.tamannio_ tamannio= switch (opc){
+          case 1 -> BasePan.tamannio_.chico;
+          case 2 -> BasePan.tamannio_.mediano;
+          default -> BasePan.tamannio_.grande;
         };
 
-        return new Pan(tipoPan,tamannio);
+        return new BasePan(tipoPan.name(),tamannio);
     }
 
     private static Carne menuCarne() {
@@ -72,50 +72,136 @@ public class Main {
             default -> "Bien Hecha";
         };
 
-        return new Carne(tipoCarne,coccion);
+        return new Carne(tipoCarne.name(),coccion);
     }
 
-    private static Catsup menuCatzup(){
-        return null;
+    private static Hamburgueza2 opcCatsup(Hamburgueza2 obj){
+        Scanner teclado = new Scanner(System.in);
+        int opc;
+
+        System.out.println("¿Gustas agregar Catsup?");
+        System.out.println("1.- Si");
+        System.out.println("2.- No");
+        opc=teclado.nextInt();
+
+        if (opc==1)
+            obj.addCatsup();
+
+        return obj;
     }
 
-    private static Mostaza menuMostaza(){
-        return null;
+    private static Hamburgueza2 opcMostaza(Hamburgueza2 obj){
+        Scanner teclado = new Scanner(System.in);
+        int opc;
+
+        System.out.println("¿Gustas agregar Mostaza?");
+        System.out.println("1.- Si");
+        System.out.println("2.- No");
+        opc=teclado.nextInt();
+
+        if (opc==1)
+            obj.addMotaza();
+
+        return obj;
     }
 
-    private static Jitomate menuJitomate(){
-        return null;
+    private static Hamburgueza2 opcJitomate(Hamburgueza2 obj){
+        Scanner teclado = new Scanner(System.in);
+        int opc;
+
+        System.out.println("Ahora vamos con el jitomate");
+        System.out.println("1.- Jitomate Bola");
+        System.out.println("2.- Jitomate Roma");
+        System.out.println("3.- Jitomate Chery");
+        System.out.println("4.- Sin Jitomate por favor");
+
+        opc=teclado.nextInt();
+
+        switch (opc){
+            case 1: obj.addJitomate(Jitomate.tipo.bola,15f);
+                break;
+            case 2: obj.addJitomate(Jitomate.tipo.roma,20f);
+                break;
+            case 3: obj.addJitomate(Jitomate.tipo.cherry,13f);
+                break;
+        }
+
+        return obj;
     }
 
-    private static Queso menuQueso(){
-        return null;
+    private static Hamburgueza2 opcQueso(Hamburgueza2 obj){
+        Scanner teclado = new Scanner(System.in);
+        int opc;
+
+        System.out.println("Seguimos con el queso");
+        System.out.println("1.- Queso Manchego");
+        System.out.println("2.- Queso Chedar");
+        System.out.println("3.- Queso Gouda");
+        System.out.println("4.- Queso Mozzarella");
+        System.out.println("5.- Sin queso por favor");
+
+        opc=teclado.nextInt();
+
+        switch (opc){
+            case 1: obj.addQueso(Queso.tipo.manchego,65f);
+                break;
+            case 2: obj.addQueso(Queso.tipo.chedar,75f);
+                break;
+            case 3: obj.addQueso(Queso.tipo.gouda,120f);
+                break;
+            case 4: obj.addQueso(Queso.tipo.mozzarella,140f);
+                break;
+        }
+
+        return obj;
     }
 
-    private static Lechuga menuLechuga(){
-        return null;
+    private static Hamburgueza2 opcLechuga(Hamburgueza2 obj){
+        Scanner teclado = new Scanner(System.in);
+        int opc;
+
+        System.out.println("¿Agregamos lechuga en tu hamburgueza?");
+        System.out.println("1.- Si claro");
+        System.out.println("2.- No en esta ocasión");
+        opc=teclado.nextInt();
+
+        if (opc==1)
+            obj.addLechuga();
+
+        return obj;
     }
 
     public static void main(String[] args) {
         Hamburgueza2 obj = new Hamburgueza2();
         Scanner teclado = new Scanner(System.in);
-        String nombre;
-        int mesa;
+        int opc;
 
         System.out.println("Hola ¡Cómo te llamas!");
-        nombre= teclado.next();
-        System.out.println(nombre + " bienvenido a Hamburguesas Mexicanas");
+        obj.setCliente(teclado.next());
+        System.out.println(obj.getCliente() + " bienvenido a Hamburguesas Mexicanas");
 
-        obj.setPan(menuPan());
-        obj.setCarne(menuCarne());
+        System.out.println("¿Gustas ordenar una hamburgueza especialidad de la casa? o ¿quieres personalizarla?");
+        System.out.println("1.- La especidalidad de la casa esta bien");
+        System.out.println("2.- Quiero personalizarla gracias");
+        opc=teclado.nextInt();
 
-        obj.addCatsup();
-        obj.addMotaza();
-        obj.addJitomate();
-        obj.addJitomate(Jitomate.tipo.cherry, 12f);
-        obj.addQueso();
-        obj.addQueso(Queso.tipo.gouda,150f);
-        obj.addLechuga();
-        obj.addCatsup();
+        if (opc==1){
+            obj.ingresientesDeLaCasa();
+        }
+        else if(opc==2)
+        {
+            obj.setBasePan(menuPan());
+            obj.setCarne(menuCarne());
+            System.out.println("buenisimo...");
+            System.out.println("ahora seleciona uno a uno tus ingredientes");
+
+            obj=opcCatsup(obj);
+            obj=opcMostaza(obj);
+            obj=opcJitomate(obj);
+            System.out.println("Ya casi terminamos...");
+            obj=opcQueso(obj);
+            obj=opcLechuga(obj);
+        }
 
         System.out.println(obj);
     }

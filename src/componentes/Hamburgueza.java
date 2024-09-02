@@ -4,7 +4,7 @@ import ingredientes.Catsup;
 import ingredientes.Jitomate;
 
 public class Hamburgueza {
-    private Pan pan;
+    private TapaPan pan;
     private Carne carne;
 
     private Jitomate[] jitomates= new Jitomate[100];
@@ -14,7 +14,7 @@ public class Hamburgueza {
     private int i_catz;
 
     public Hamburgueza(){
-        pan = new Pan();
+        pan = new TapaPan();
         carne= new Carne();
         i_jito=0;
         i_catz=0;
@@ -54,8 +54,8 @@ public class Hamburgueza {
     @Override
     public String toString(){
         return  "<<Orden Hamburgueza>>\n" +
-                "Pan " + pan.getTipoPan() + " tamaño " + pan.getTamannio() + "\n" +
-                "carne de " + carne.getTipoCarne() + " " + carne.getCoccion() + "\n\n" +
+                "Pan " + pan.getNombre() + " tamaño " + pan.getTamannio() + "\n" +
+                "carne de " + carne.getNombre() + " " + carne.getCoccion() + "\n\n" +
                 "incluye: \n" +
                 getJitomates() +
                 getCatzup();

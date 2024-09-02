@@ -3,29 +3,48 @@ package componentes;
 import ingredientes.*;
 
 public class Hamburgueza2 {
-    private Pan pan;
+    private TapaPan tapaPan;
+    private BasePan basePan;
     private Carne carne;
+    private String cliente;
 
     private Ingrediente[] ingredientes= new Ingrediente[12];
     private int i;
 
     public Hamburgueza2(){
-        pan = new Pan();
+        basePan = new BasePan();
         carne= new Carne();
         i=0;
     }
 
-    public void setPan(Pan pan){
-        this.pan=pan;
+    public void ingresientesDeLaCasa(){
+        addCatsup();
+        addMotaza();
+        addJitomate();
+        addJitomate();
+        addQueso();
+        addLechuga();
     }
 
-    public void setPan(Pan.tipo tipoPan, Pan.tamannio_ tamannio){
-        pan.setTipoPan(tipoPan);
-        pan.setTamannio(tamannio);
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setBasePan(BasePan basePan){
+        this.basePan=basePan;
+    }
+
+    public void setBasePan(BasePan.tipo tipoPan, BasePan.tamannio_ tamannio){
+        basePan.setNombre(tipoPan.name());
+        basePan.setTamannio(tamannio);
     }
 
     public void setCarne(Carne.tipo tipoCrne, String coccion){
-        carne.setTipoCarne(tipoCrne);
+        carne.setNombre(tipoCrne.name());
         carne.setCoccion(coccion);
     }
 
@@ -78,9 +97,9 @@ public class Hamburgueza2 {
 
     @Override
     public String toString(){
-        return  "<<Orden Hamburgueza>>\n" +
-                "Pan " + pan.getTipoPan() + " tamaño " + pan.getTamannio() + "\n" +
-                "carne de " + carne.getTipoCarne() + " " + carne.getCoccion() + "\n\n" +
+        return  "** Listo trabajando orden para "+ this.cliente +">>\n" +
+                "Pan " + basePan.getNombre() + " tamaño " + basePan.getTamannio() + "\n" +
+                "carne de " + carne.getNombre() + " " + carne.getCoccion() + "\n\n" +
                 "incluye: \n" +
                 getIngredientes();
     }

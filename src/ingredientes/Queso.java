@@ -7,18 +7,18 @@ public class Queso implements Ingrediente{
     private float calorias;
 
     public Queso(){
-        this.tipoQueso="Queso blanco";
+        this.tipoQueso="Queso " + tipo.chedar.name();
         this.calorias=250f;
     }
 
     public Queso(String tipoQueso, float calorias){
-        this.tipoQueso=tipoQueso;
+        this.tipoQueso="Queso " + tipoQueso;
         this.calorias=calorias;
     }
 
     @Override
     public void setNombre(String tipoQueso) {
-        this.tipoQueso=tipoQueso;
+        this.tipoQueso="Queso " + tipoQueso;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class Jitomate implements Ingrediente {
     private float calorias;
 
     public Jitomate(){
-        this.nombre="Jitomate normal";
+        this.nombre=tipo.bola.toString();
         this.calorias=15f;
     }
 
