@@ -1,10 +1,10 @@
 package ingredientes;
 
-public class Catzup implements Ingrediente {
+public class Catsup implements Ingrediente {
     private String nombre;
     private float calorias;
 
-    public Catzup(){
+    public Catsup(){
         this.nombre="Catzup";
         this.calorias=30f;
     }
