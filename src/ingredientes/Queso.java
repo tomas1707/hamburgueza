@@ -1,27 +1,29 @@
 package ingredientes;
 
 public class Queso implements Ingrediente{
-    private String nombre;
+    public static enum tipo{manchego, chedar, gouda, mozzarella}
+
+    private String tipoQueso;
     private float calorias;
 
     public Queso(){
-        this.nombre="Queso blanco";
+        this.tipoQueso="Queso blanco";
         this.calorias=250f;
     }
 
-    public Queso(String nombre, float calorias){
-        this.nombre=nombre;
+    public Queso(String tipoQueso, float calorias){
+        this.tipoQueso=tipoQueso;
         this.calorias=calorias;
     }
 
     @Override
-    public void setNombre(String nombre) {
-        this.nombre=nombre;
+    public void setNombre(String tipoQueso) {
+        this.tipoQueso=tipoQueso;
     }
 
     @Override
     public String getNombre() {
-        return this.nombre;
+        return this.tipoQueso;
     }
 
     @Override
