@@ -3,24 +3,25 @@ package componentes;
 import java.security.PublicKey;
 
 public class Carne {
-    private String tipoCarne;
+    public static enum tipo{res,pollo, bife, añojo}
+    private tipo tipoCarne;
     private String coccion;
 
     public  Carne(){
-        this.tipoCarne="Res";
+        this.tipoCarne=tipo.res;
         this.coccion="termino medio";
     }
 
-    public Carne(String tipoCarne, String coccion){
+    public Carne(tipo tipoCarne, String coccion){
         this.tipoCarne=tipoCarne;
         this.coccion=coccion;
     }
 
-    public String getTipoCarne() {
+    public tipo getTipoCarne() {
         return tipoCarne;
     }
 
-    public void setTipoCarne(String tipoCarne) {
+    public void setTipoCarne(tipo tipoCarne) {
         this.tipoCarne = tipoCarne;
     }
 
